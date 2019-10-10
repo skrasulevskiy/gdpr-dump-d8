@@ -1,0 +1,34 @@
+---
+requiresVersion: true
+
+tables:
+    cache_*:
+        truncate: true
+
+    sessions:
+        truncate: true
+
+    users_field_data:
+        converters:
+            mail:
+                converter: 'randomizeEmail'
+            init:
+                converter: 'randomizeEmail'
+                unique: true
+            name:
+                converter: 'randomizeText'
+                unique: true
+            pass:
+                converter: 'randomizeText'
+
+    user__field_user_first_name:
+        converters:
+            field_user_first_name_value:
+                converter: 'randomizeText'
+                unique: true
+
+    user__field_user_last_name:
+        converters:
+            field_user_last_name_value:
+                converter: 'randomizeText'
+                unique: true
